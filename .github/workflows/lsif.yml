@@ -1,0 +1,17 @@
+name: LSIF
+on:
+  - push
+jobs:
+  index:
+    runs-on: ubuntu-latest
+    container: node:13.8.0-alpine3.10
+    steps:
+      - uses: actions/checkout@v1
+      - name: Install dependencies
+        run: yarn
+      - name: Generate LSIF data
+        uses: sourcegraph/lsif-node-action@master
+      - name: Upload LSIF data
+        uses: sourcegraph/lsif-upload-action@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
