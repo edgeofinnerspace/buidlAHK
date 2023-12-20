@@ -14,4 +14,4 @@ jobs:
       - name: Upload LSIF data
         uses: sourcegraph/lsif-upload-action@master
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
+          github_token: ${{ secrets.TOKEN }}
